@@ -12,6 +12,7 @@
  
 public class CodonCount {
     private HashMap<String,Integer> dnaCodonCount;
+    private int count; 
     
     public CodonCount () {
         dnaCodonCount = new HashMap<String,Integer> ();
@@ -19,12 +20,13 @@ public class CodonCount {
     
     public void buildCodonMap (int start, String dna) {
         dnaCodonCount.clear();
-        int index = 0;
+        int index = 0;        
         int currStart = start;
         for (int k = start; k<dna.length()-3; k=k+3) {
             String sub = dna.substring(k, k+3);
             if (!dnaCodonCount.containsKey(sub)) {
                 dnaCodonCount.put(sub,1);
+                count ++;
             }
             else {
                 int value = dnaCodonCount.get(sub);
@@ -49,9 +51,10 @@ public class CodonCount {
     public void printCodonCounts () {
         FileResource fr = new FileResource();
         String dna = fr.asString();
-        buildCodonMap (2,dna);
+        buildCodonMap (0,dna);
         for (String k : dnaCodonCount.keySet()){
             System.out.println( k +"\t:\t"+(dnaCodonCount.get(k)));
         }
+        System.out.println("The unique dna are : " + count);
     }
 }

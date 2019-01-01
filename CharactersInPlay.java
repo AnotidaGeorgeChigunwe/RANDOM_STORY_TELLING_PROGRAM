@@ -48,7 +48,7 @@ public class CharactersInPlay {
         findAllCharacters ();
         for (int k = 0;k< charNames.size();k++) {
             int value = myFreqs.get(k);
-                if (value >= 10 && value <= 15) {
+                if (value > 10 && value < 100) {
                     System.out.println(charNames.get(k) +"\t"+myFreqs.get(k));
                 } 
         }

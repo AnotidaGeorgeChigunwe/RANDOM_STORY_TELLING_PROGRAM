@@ -80,7 +80,9 @@ public class WordsinFiles {
         //System.out.println("The max int :" + maxNumber);
         ArrayList<String> wordWithMax = wordsInNumFiles (maxNumber);
         for (String s: wordWithMax) {
+            s = "tree";
             printFilesIn (s);
         }
+        System.out.println("The number of files are : "+ (wordWithMax.size()));
     }
 }
